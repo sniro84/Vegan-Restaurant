@@ -4,11 +4,20 @@
 class MenuItem
 {
 public:
-    char *GetName() const;
-    char *GetDescription() const;
-    int GetPrice() const;
+    MenuItem(const char* name, const char* description, int price);
+    MenuItem(const MenuItem& other);
+    virtual ~MenuItem();
 
-private:
+    virtual void show() const = 0;
+
+    char *getName() const;
+    char *getDescription() const;
+    int getPrice() const;
+    void setName(const char* name);
+    void setDescription(const char* description);
+    void setPrice(const int price);
+
+protected:
     char *m_name;
     char *m_description;
     int m_price;
