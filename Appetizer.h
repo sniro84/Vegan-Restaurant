@@ -1,28 +1,29 @@
 #ifndef __APPETIZER_H_
 #define __APPETIZER_H_
 
-#include "Appetizer.h" 
+#include "MenuItem.h" 
 
+enum eSpiciness { NONE, MILD, MEDIUM, HOT };
+    
 class Appetizer : public MenuItem
 {
 public:
-    Appetizer(const char* name, const char* description, int price);
-    MenuItem(const MenuItem& other);
-    virtual ~MenuItem();
+    Appetizer(const char* name, const char* description, int price,
+              eSpiciness spiciness, const char* allergenInfo); 
+    Appetizer(const Appetizer& other);
+    virtual ~Appetizer();
 
-    virtual void show() const = 0;
+    virtual void show() const override;
 
-    char* getName() const;
-    char* getDescription() const;
-    int getPrice() const;
-    void setName(const char* name);
-    void setDescription(const char* description);
-    void setPrice(const int price);
+    eSpiciness getSpiciness() const;
+    char* getAllergenInfo() const;
+
+    void setSpiciness(eSpiciness spiciness);
+    void setAllergenInfo(const char* allergenInfo);
 
 protected:
-    char* m_name;
-    char* m_description;
-    int m_price;
+    eSpiciness m_spiciness;
+    char* m_allergenInfo;
 };
 
 #endif // __APPETIZER_H_
