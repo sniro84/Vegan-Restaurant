@@ -4,22 +4,22 @@
 class MenuItem
 {
 public:
-    MenuItem(const char* name, const char* description, int price);
-    MenuItem(const MenuItem& other);
+    MenuItem(const char *name, const char *description, int price);
+    MenuItem(const MenuItem &other);
     virtual ~MenuItem();
 
     virtual void show() const = 0;
 
-    char* getName() const;
-    char* getDescription() const;
+    char *getName() const;
+    char *getDescription() const;
     int getPrice() const;
-    void setName(const char* name);
-    void setDescription(const char* description);
+    void setName(const char *name);
+    void setDescription(const char *description);
     void setPrice(const int price);
 
 protected:
-    char* m_name;
-    char* m_description;
+    char *m_name;
+    char *m_description;
     int m_price;
 };
 

@@ -11,13 +11,13 @@ enum e_spiciness
     HOT
 };
 
-class Appetizer : public MenuItem
+class MainCourse : public MenuItem
 {
 public:
-    Appetizer(const char *name, const char *description, int price,
+    MainCourse(const char *name, const char *description, int price,
               e_spiciness spiciness, const char *allergenInfo);
-    Appetizer(const Appetizer &other);
-    virtual ~Appetizer();
+    MainCourse(const MainCourse &other);
+    virtual ~MainCourse();
 
     virtual void show() const override;
 
