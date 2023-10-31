@@ -3,17 +3,12 @@
 
 #include "MenuItem.h"
 
-enum e_spiciness
-{
-    NONE,
-    MILD,
-    MEDIUM,
-    HOT
-};
+
 
 class Appetizer : public MenuItem
 {
 public:
+    enum e_spiciness {NONE, MILD, MEDIUM, HOT};
     Appetizer(const char *name, const char *description, int price,
               e_spiciness spiciness, const char *allergenInfo);
     Appetizer(const Appetizer &other);
