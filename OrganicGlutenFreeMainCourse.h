@@ -8,10 +8,8 @@ class OrganicGlutenFreeMainCourse : public OrganicMainCourse, public GlutenFreeM
 {
 public:
     OrganicGlutenFreeMainCourse(const OrganicMainCourse &o , const GlutenFreeMainCourse &g);
-    OrganicGlutenFreeMainCourse(const GlutenFreeMainCourse &other);
-    ~OrganicGlutenFreeMainCourse();
 
-    virtual void show() const override;
+    virtual void toOs(std::ostream &os) const override;
 };
 
 #endif // __ORGANIC_GLUTENFREE_MAINCOURSE_H_

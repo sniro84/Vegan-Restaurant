@@ -10,8 +10,9 @@ public:
               e_spiciness spiciness, const char *allergenInfo, const char *glutenFreeCertification);
     GlutenFreeAppetizer(const GlutenFreeAppetizer &other);
     virtual ~GlutenFreeAppetizer();
+    GlutenFreeAppetizer &operator=(const GlutenFreeAppetizer &other);
 
-    virtual void show() const override;
+    virtual void toOs(std::ostream &os) const override;
 
     char *getGlutenFreeCertification() const;
     void setGlutenFreeCertification(const char *glutenFreeCertification);

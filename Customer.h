@@ -7,8 +7,8 @@ public:
     Customer(char *name, char *address, char *paymentDetails);
     Customer(const Customer &other);
     ~Customer();
-
-    void show() const;
+    Customer &operator=(const Customer &other);
+    friend std::ostream &operator<<(std::ostream &os, const Customer &c);
 
     char *getName() const;
     char *getAddress() const;

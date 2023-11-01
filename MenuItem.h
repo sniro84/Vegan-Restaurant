@@ -1,14 +1,19 @@
 #ifndef __MENUITEM_H_
 #define __MENUITEM_H_
 
+#include <iostream>
+
 class MenuItem
 {
 public:
     MenuItem(const char *name, const char *description, int price);
     MenuItem(const MenuItem &other);
     virtual ~MenuItem();
-
-    virtual void show() const = 0;
+    MenuItem &operator=(const MenuItem &other);
+    bool operator<(const MenuItem &other) const;
+    bool operator>(const MenuItem &other) const;
+    friend std::ostream &operator<<(std::ostream &os, const MenuItem &m);
+    virtual void toOs(std::ostream &os) const {};
 
     char *getName() const;
     char *getDescription() const;

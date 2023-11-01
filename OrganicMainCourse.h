@@ -10,8 +10,9 @@ public:
               e_spiciness spiciness, const char *allergenInfo, const char *orgCertification);
     OrganicMainCourse(const OrganicMainCourse &other);
     virtual ~OrganicMainCourse();
+    OrganicMainCourse &operator=(const OrganicMainCourse &other);
 
-    virtual void show() const override;
+    virtual void toOs(std::ostream &os) const override;
 
     char *getOrgCertification() const;
     void setOrgCertification(const char *orgCertification);

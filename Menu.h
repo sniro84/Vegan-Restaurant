@@ -9,8 +9,14 @@ public:
     Menu(MenuItem **items);
     Menu(const Menu &other);
     ~Menu();
+    Menu &operator=(const Menu &other);
+    friend std::ostream &operator<<(std::ostream &os, const Menu &m);
 
-    void show() const;
+    void printMenu();
+    void addToMenu(MenuItem &m);
+    void deleteFromMenu(MenuItem &m);
+    void showItemsBySpiciness(const char *spiciness);
+    void showItemsByAllergenInfo(const char *allergenInfo);
 
     MenuItem **getItems() const;
     void setItems(const MenuItem **items);

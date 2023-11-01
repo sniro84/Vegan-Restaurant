@@ -1,6 +1,8 @@
 #ifndef __ORDER_H_
 #define __ORDER_H_
 
+#include <iostream>
+
 #include "OrderItem.h"
 #include "Customer.h"
 
@@ -10,8 +12,15 @@ public:
     Order(OrderItem **itemsList, Customer *customer, char *remarks);
     Order(const Order &other);
     ~Order();
+    Order &operator=(const Order &other);
+    const Order &operator+=(const OrderItem &item);
+    const Order &operator-=(const OrderItem &item);
+    friend std::ostream &operator<<(std::ostream &os, const Order &o);
 
-    void show() const;
+    void recieveOrder(OrderItem **items, Customer *customer, char *remarks);
+    void printOrder();
+    void updateOrder(OrderItem **items, Customer *customer, char *remarks);
+    void deleteOrder();
 
     OrderItem **getItemsList() const;
     Customer *getCustomer() const;

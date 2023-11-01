@@ -11,8 +11,9 @@ public:
               e_spiciness spiciness, const char *allergenInfo);
     MainCourse(const MainCourse &other);
     virtual ~MainCourse();
+    MainCourse &operator=(const MainCourse &other);
 
-    virtual void show() const override;
+    virtual void toOs(std::ostream &os) const override;
 
     e_spiciness getSpiciness() const;
     char *getAllergenInfo() const;

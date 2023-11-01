@@ -3,8 +3,6 @@
 
 #include "MenuItem.h"
 
-
-
 class Appetizer : public MenuItem
 {
 public:
@@ -13,8 +11,9 @@ public:
               e_spiciness spiciness, const char *allergenInfo);
     Appetizer(const Appetizer &other);
     virtual ~Appetizer();
-
-    virtual void show() const override;
+    Appetizer &operator=(const Appetizer &other);
+    
+    virtual void toOs(std::ostream &os) const override;
 
     e_spiciness getSpiciness() const;
     char *getAllergenInfo() const;
