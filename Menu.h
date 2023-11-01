@@ -15,8 +15,7 @@ public:
     void printMenu();
     void addToMenu(MenuItem &m);
     void deleteFromMenu(MenuItem &m);
-    void showItemsBySpiciness(const char *spiciness);
-    void showItemsByAllergenInfo(const char *allergenInfo);
+    void showItems(const char *spiciness);
 
     MenuItem **getItems() const;
     void setItems(const MenuItem **items);
