@@ -1,22 +1,24 @@
 #ifndef __CUSTOMER_H_
 #define __CUSTOMER_H_
 
+#include <iostream>
+
 class Customer
 {
 public:
-    Customer(char *name, char *address, char *paymentDetails);
+    Customer(const char *name, const char *address, const char *paymentDetails);
     Customer(const Customer &other);
     ~Customer();
     Customer &operator=(const Customer &other);
     friend std::ostream &operator<<(std::ostream &os, const Customer &c);
 
-    char *getName() const;
-    char *getAddress() const;
-    char *getPaymentDetails() const;
+    const char *getName() const;
+    const char *getAddress() const;
+    const char *getPaymentDetails() const;
 
-    void setName(char *name);
-    void setAddress(char *address);
-    void setPaymentDetails(char *paymentDetails);
+    void setName(const char *name);
+    void setAddress(const char *address);
+    void setPaymentDetails(const char *paymentDetails);
 
 private:
     char *m_name;

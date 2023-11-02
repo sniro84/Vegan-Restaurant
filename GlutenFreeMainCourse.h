@@ -14,7 +14,7 @@ public:
 
     virtual void toOs(std::ostream &os) const override;
 
-    char *getGlutenFreeCertification() const;
+    const char *getGlutenFreeCertification() const;
     void setGlutenFreeCertification(const char *glutenFreeCertification);
 
 protected:

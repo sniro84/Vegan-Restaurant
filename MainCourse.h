@@ -16,7 +16,7 @@ public:
     virtual void toOs(std::ostream &os) const override;
 
     e_spiciness getSpiciness() const;
-    char *getAllergenInfo() const;
+    const char *getAllergenInfo() const;
     void setSpiciness(e_spiciness spiciness);
     void setAllergenInfo(const char *allergenInfo);
 

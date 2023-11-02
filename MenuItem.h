@@ -15,8 +15,8 @@ public:
     friend std::ostream &operator<<(std::ostream &os, const MenuItem &m);
     virtual void toOs(std::ostream &os) const {};
 
-    char *getName() const;
-    char *getDescription() const;
+    const char *getName() const;
+    const char *getDescription() const;
     int getPrice() const;
     void setName(const char *name);
     void setDescription(const char *description);

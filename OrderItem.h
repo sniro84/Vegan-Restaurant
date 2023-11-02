@@ -6,13 +6,13 @@
 class OrderItem
 {
 public:
-    OrderItem(MenuItem *item, int quantity);
+    OrderItem(MenuItem &item, int quantity);
 
     friend std::ostream &operator<<(std::ostream &os, const OrderItem &o);
 
     MenuItem *getItem() const;
     int getQuantity() const;
-    void setItem(const MenuItem *item);
+    void setItem(const MenuItem &item);
     void setQuantity(int quantity);
 
 private:

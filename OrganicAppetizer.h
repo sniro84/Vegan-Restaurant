@@ -14,7 +14,7 @@ public:
 
     virtual void toOs(std::ostream &os) const override;
 
-    char *getOrgCertification() const;
+    const char *getOrgCertification() const;
     void setOrgCertification(const char *orgCertification);
 
 protected:

@@ -9,7 +9,7 @@
 class Order
 {
 public:
-    Order(OrderItem **itemsList, Customer *customer, char *remarks);
+    Order(int capacity, Customer &customer, const char *remarks);
     Order(const Order &other);
     ~Order();
     Order &operator=(const Order &other);
@@ -17,23 +17,25 @@ public:
     const Order &operator-=(const OrderItem &item);
     friend std::ostream &operator<<(std::ostream &os, const Order &o);
 
-    void recieveOrder(OrderItem **items, Customer *customer, char *remarks);
-    void printOrder();
-    void updateOrder(OrderItem **items, Customer *customer, char *remarks);
+    void recieveOrder(int capacity, Customer &customer, const char *remarks);
+    void printOrder() const;
+    void updateOrder(int capacity, Customer &customer, const char *remarks);
     void deleteOrder();
-
     OrderItem **getItemsList() const;
-    Customer *getCustomer() const;
-    char *getRemarks() const;
-
-    void setItemsList(OrderItem **itemsList);
-    void setCustomer(Customer *customer);
-    void setRemarks(char *remarks);
+    Customer &getCustomer() const;
+    const char *getRemarks() const;
+    void addItem(OrderItem *item);
+    void setCustomer(Customer &customer);
+    void setRemarks(const char *remarks);
 
 private:
     OrderItem **m_itemsList;
+    static int m_itemsCount;
+    int m_capacity;
     Customer *m_customer;
     char *m_remarks;
 };
+
+int Order::m_itemsCount = 0;
 
 #endif // __ORDER_H_

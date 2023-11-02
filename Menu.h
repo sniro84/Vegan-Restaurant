@@ -6,22 +6,28 @@
 class Menu
 {
 public:
-    Menu(MenuItem **items);
+    Menu(int capacity);
     Menu(const Menu &other);
     ~Menu();
     Menu &operator=(const Menu &other);
     friend std::ostream &operator<<(std::ostream &os, const Menu &m);
 
-    void printMenu();
-    void addToMenu(MenuItem &m);
-    void deleteFromMenu(MenuItem &m);
-    void showItems(const char *spiciness);
+    void printMenu() const;
+    void addItem(MenuItem &m);
+    void deleteItem(MenuItem &m);
+    void showItems(const char *spiciness) const;
 
-    MenuItem **getItems() const;
-    void setItems(const MenuItem **items);
+    MenuItem **getAllItems() const;
+
+    int getCapacity() const;
+    void setCapacity(int capacity);
 
 private:
-    MenuItem **m_items;
+    MenuItem **m_allItems;
+    int m_capacity;
+    static int m_itemsCounter;
 };
+
+int Menu::m_itemsCounter = 0;
 
 #endif // __MENU_H_
