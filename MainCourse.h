@@ -1,5 +1,5 @@
-#ifndef __APPETIZER_H_
-#define __APPETIZER_H_
+#ifndef __MAINCOURSE_H_
+#define __MAINCOURSE_H_
 
 #include "MenuItem.h"
 
@@ -25,4 +25,4 @@ protected:
     char *m_allergenInfo;
 };
 
-#endif // __APPETIZER_H_
+#endif // __MAINCOURSE_H_
