@@ -9,7 +9,7 @@
 class Order
 {
 public:
-    Order(int capacity, Customer &customer, const char *remarks);
+    Order(const Customer &customer, const char *remarks);
     Order(const Order &other);
     ~Order();
     Order &operator=(const Order &other);
@@ -17,15 +17,15 @@ public:
     const Order &operator-=(const OrderItem &item);
     friend std::ostream &operator<<(std::ostream &os, const Order &o);
 
-    void recieveOrder(int capacity, Customer &customer, const char *remarks);
+    void recieveOrder(const Customer &customer, const char *remarks);
     void printOrder() const;
-    void updateOrder(int capacity, Customer &customer, const char *remarks);
+    void updateOrder(const Customer &customer, const char *remarks);
     void deleteOrder();
     OrderItem **getItemsList() const;
     Customer &getCustomer() const;
     const char *getRemarks() const;
-    void addItem(OrderItem *item);
-    void setCustomer(Customer &customer);
+    void addItem(const OrderItem &item);
+    void setCustomer(const Customer &customer);
     void setRemarks(const char *remarks);
 
 private:
