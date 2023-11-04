@@ -152,8 +152,9 @@ int main(void)
         menu.addItem(item);
     }
 
-    /* add organic appetizer */
-
+    /* add complex items */
+    menu.addItem(*organicAppetizer);
+    menu.addItem(*glutenFreeMainCourse);
     
     /* display menu */
 
