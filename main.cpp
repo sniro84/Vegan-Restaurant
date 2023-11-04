@@ -114,16 +114,45 @@ int main(void)
     OrganicAppetizer *organicAppetizer = 
         new OrganicAppetizer(orApName, orApDescription, orApPrice, orApSpiciness, orApAllergenInfos, orgCertification);
 
+    /* Gluten-Free Main Course */
+    const char *gfMcName = "Gluten Free Main Course";
+    const char *gfMcDescription = "This is Gluten Free Main Course"; 
+    int gfMcPrice = 10;
+    GlutenFreeMainCourse::e_spiciness gfMcSpiciness = GlutenFreeMainCourse::HOT; 
+    const char *gfMcAllergenInfos = "Allergan info of Gluten Free Main Course";
+    const char *gfMcCertification = "Gluten Free Main Course certification";
+     
+    GlutenFreeMainCourse *glutenFreeMainCourse = 
+        new GlutenFreeMainCourse(gfMcName, gfMcDescription, gfMcPrice, gfMcSpiciness, gfMcAllergenInfos, gfMcCertification);
+
     /* ----------------------------------------- */
 
     /* ------- 2. Creating Menu -------- */
 
     Menu menu;
+
+    /* add appetizers */
     for(int i = 0; i<NUM_OF_ITEMS; ++i)
     {
         MenuItem &item = *appetizers[i]; 
         menu.addItem(item);
     }
+
+    /* add beverages */
+    for(int i = 0; i<NUM_OF_ITEMS; ++i)
+    {
+        MenuItem &item = *beverages[i]; 
+        menu.addItem(item);
+    }
+
+    /* add main courses */
+    for(int i = 0; i<NUM_OF_ITEMS; ++i)
+    {
+        MenuItem &item = *mainCourses[i]; 
+        menu.addItem(item);
+    }
+
+    /* add organic appetizer */
 
     
     /* display menu */
@@ -147,6 +176,7 @@ int main(void)
         delete mainCourses[i];
     }
     delete organicAppetizer;
+    delete glutenFreeMainCourse;
 
 
     return (0);
