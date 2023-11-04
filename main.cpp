@@ -8,6 +8,9 @@
 #include "Menu.h"
 #include "Customer.h"
 
+#include "OrganicAppetizer.h"
+#include "GlutenFreeMainCourse.h"
+
 int main(void)
 {
     const int NUM_OF_ITEMS = 5;
@@ -100,6 +103,17 @@ int main(void)
         beverages[i] = new Beverage(bevNames[i], bevDescriptions[i], bevPrices[i], bevSizes[i]);
     }
     
+    /* Organic Appetizer */
+    const char *orApName = "Organic Appetizer";
+    const char *orApDescription = "This is organic Appetizer"; 
+    int orApPrice = 10;
+    OrganicAppetizer::e_spiciness orApSpiciness = OrganicAppetizer::HOT; 
+    const char *orApAllergenInfos = "Allergan info of organic appetizer";
+    const char *orgCertification = "organic appetizer certification";
+     
+    OrganicAppetizer *organicAppetizer = 
+        new OrganicAppetizer(orApName, orApDescription, orApPrice, orApSpiciness, orApAllergenInfos, orgCertification);
+
     /* ----------------------------------------- */
 
     /* ------- 2. Creating Menu -------- */
@@ -132,6 +146,7 @@ int main(void)
         delete appetizers[i];
         delete mainCourses[i];
     }
+    delete organicAppetizer;
 
 
     return (0);
