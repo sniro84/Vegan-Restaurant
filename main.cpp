@@ -9,7 +9,11 @@
 #include "Customer.h"
 
 #include "OrganicAppetizer.h"
+#include "OrganicMainCourse.h"
+#include "GlutenFreeAppetizer.h"
 #include "GlutenFreeMainCourse.h"
+#include "OrganicGlutenFreeAppetizer.h"
+#include "OrganicGlutenFreeMainCourse.h"
 
 int main(void)
 {
@@ -110,9 +114,19 @@ int main(void)
     OrganicAppetizer::e_spiciness orApSpiciness = OrganicAppetizer::HOT; 
     const char *orApAllergenInfos = "Allergan info of organic appetizer";
     const char *orgCertification = "organic appetizer certification";
-     
+ 
     OrganicAppetizer *organicAppetizer = 
         new OrganicAppetizer(orApName, orApDescription, orApPrice, orApSpiciness, orApAllergenInfos, orgCertification);
+
+    /* Organic MainCourse */
+    const char *orMcName = "Organic MainCourse";
+    const char *orMcDescription = "This is organic MainCourse"; 
+    int orMcPrice = 10;
+    OrganicMainCourse::e_spiciness orMcSpiciness = OrganicMainCourse::HOT; 
+    const char *orMcAllergenInfos = "Allergan info of organic MainCourse";
+
+     OrganicMainCourse *organicMainCourse = 
+        new OrganicMainCourse(orMcName, orMcDescription, orMcPrice, orMcSpiciness, orMcAllergenInfos, orgCertification);
 
     /* Gluten-Free Main Course */
     const char *gfMcName = "Gluten Free Main Course";
@@ -124,6 +138,10 @@ int main(void)
      
     GlutenFreeMainCourse *glutenFreeMainCourse = 
         new GlutenFreeMainCourse(gfMcName, gfMcDescription, gfMcPrice, gfMcSpiciness, gfMcAllergenInfos, gfMcCertification);
+
+    /* Organic Gluten-Free Main Course */
+    OrganicGlutenFreeMainCourse *organicGlutenFreeMainCourse = 
+        new OrganicGlutenFreeMainCourse(*organicMainCourse, *glutenFreeMainCourse);
 
     /* ----------------------------------------- */
 
@@ -156,21 +174,28 @@ int main(void)
     menu.addItem(*organicAppetizer);
     menu.addItem(*glutenFreeMainCourse);
     
-    /* display menu */
+    /* ------- 3. Display Menu -------- */
+    std::cout << menu << std::endl;
 
-    /* add item to menu */
+    /* ------- 4. Remove item from menu -------- */
+    menu.deleteItem(*organicAppetizer);
+    std::cout << menu << std::endl;
 
-    /* remove item from menu */
+    /* ------- 5. Recieve order from client -------- */
+    Customer *customer = new Customer("Snir", "Crummy apartment", "Cash");
+    Order *order = new Order(*customer, "Extra-Spicy");
+    order->addItem(*dynamic_cast<OrderItem*>(mainCourses[0]));
+    order->addItem(*dynamic_cast<OrderItem*>(appetizers[1]));
+    order->addItem(*dynamic_cast<OrderItem*>(appetizers[2]));
 
-    /* recieve order from client */
+    /* ------- 6. Display order details -------- */
+    std::cout << order << std::endl;
 
-    /* display order details */
+    /* ------- 7. Update order details -------- */
+    Customer *customer2 = new Customer("Yossi", "Studio apartment", "Credit-Card");
+    order->updateOrder(*customer2, "Allergic to peanuts");
 
-    /* update order details */
-
-    /* show items which are spicy */
-
-    /* Deallocation of memory */
+    /* ------- 8. Deallocation of memory -------- */
     for(int i = 0; i<NUM_OF_ITEMS; ++i)
     {
         delete appetizers[i];
@@ -178,7 +203,9 @@ int main(void)
     }
     delete organicAppetizer;
     delete glutenFreeMainCourse;
-
+    delete organicGlutenFreeMainCourse;
+    delete customer;
+    delete order;
 
     return (0);
 }
