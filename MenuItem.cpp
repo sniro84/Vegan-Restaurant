@@ -64,7 +64,7 @@ ostream &operator<<(std::ostream &os, const MenuItem &mi)
 {
     os << "Item Name: " << mi.m_name << endl;
     os << "Item Description: " << mi.m_name << endl;
-    os << "Item Name: " << mi.m_name << endl;
+    os << "Item Price: " << mi.m_price << endl;
 
     mi.toOs(os);
 
