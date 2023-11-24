@@ -2,7 +2,7 @@
 using namespace std;
 
 #include <string.h>  /* strcpy */
-#include "MainCourse.h"
+#include "../include/MainCourse.h"
 
 /* Ctor */
 MainCourse::MainCourse(const char *name, const char *description, int price,
@@ -62,4 +62,11 @@ void MainCourse::setAllergenInfo(const char *allergenInfo)
 void MainCourse::setSpiciness(e_spiciness spiciness)
 {
     m_spiciness = spiciness;
+}
+
+/* toOs */
+void MainCourse::toOs(std::ostream &os) const
+{
+    os << "Item Spiciness: " << m_spiciness << endl;
+    os << "Item Allergen Info: " << m_allergenInfo << endl;
 }

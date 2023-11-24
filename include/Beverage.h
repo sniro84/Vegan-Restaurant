@@ -8,6 +8,9 @@ class Beverage : public MenuItem
 public:
     enum e_size {SMALL, MEDIUM, LARGE};
     Beverage(const char *name, const char *description, int price, e_size size);
+    Beverage(const Beverage &other);
+    Beverage &operator=(const Beverage &other);
+    ~Beverage(); 
 
     virtual void toOs(std::ostream &os) const override;
 

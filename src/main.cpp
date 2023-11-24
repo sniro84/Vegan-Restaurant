@@ -1,19 +1,18 @@
 #include <iostream>
 
-#include "Appetizer.h"
-#include "Beverage.h"
-#include "MainCourse.h"
-#include "OrderItem.h"
-#include "Order.h"
-#include "Menu.h"
-#include "Customer.h"
-
-#include "OrganicAppetizer.h"
-#include "OrganicMainCourse.h"
-#include "GlutenFreeAppetizer.h"
-#include "GlutenFreeMainCourse.h"
-#include "OrganicGlutenFreeAppetizer.h"
-#include "OrganicGlutenFreeMainCourse.h"
+#include "../include/Appetizer.h"
+#include "../include/Beverage.h"
+#include "../include/MainCourse.h"
+#include "../include/OrderItem.h"
+#include "../include/Order.h"
+#include "../include/Menu.h"
+#include "../include/Customer.h"
+#include "../include/OrganicAppetizer.h"
+#include "../include/OrganicMainCourse.h"
+#include "../include/GlutenFreeAppetizer.h"
+#include "../include/GlutenFreeMainCourse.h"
+#include "../include/OrganicGlutenFreeAppetizer.h"
+#include "../include/OrganicGlutenFreeMainCourse.h"
 
 int main(void)
 {

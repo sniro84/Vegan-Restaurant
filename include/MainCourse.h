@@ -1,6 +1,9 @@
 #ifndef __MAINCOURSE_H_
 #define __MAINCOURSE_H_
 
+#include <iostream>
+using namespace std;
+
 #include "MenuItem.h"
 
 class MainCourse : public MenuItem

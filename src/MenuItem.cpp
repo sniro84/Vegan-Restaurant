@@ -2,7 +2,7 @@
 using namespace std;    
 
 #include <string.h>     // strlen, strcpy
-#include "MenuItem.h"
+#include "../include/MenuItem.h"
 
 /* Ctor */
 MenuItem::MenuItem(const char *name, const char *description, int price)
