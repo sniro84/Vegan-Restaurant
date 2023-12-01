@@ -7,7 +7,7 @@
 class OrganicGlutenFreeAppetizer : public OrganicAppetizer, public GlutenFreeAppetizer 
 {
 public:
-    OrganicGlutenFreeAppetizer(const OrganicAppetizer &o , const GlutenFreeAppetizer &g);
+    OrganicGlutenFreeAppetizer(const OrganicAppetizer &oa , const GlutenFreeAppetizer &gfa);
 
     virtual void toOs(std::ostream &os) const override;
 };

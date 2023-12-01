@@ -15,11 +15,7 @@ public:
     MainCourse(const MainCourse &other);
     virtual ~MainCourse();
     MainCourse &operator=(const MainCourse &other);
-    virtual void toOs(std::ostream &os) const override
-    {
-        os << "Item Spiciness: " << m_spiciness << endl;
-        os << "Item Allergen Information: " << m_allergenInfo << endl;
-    };
+    virtual void toOs(std::ostream &os) const override;
 
     e_spiciness getSpiciness() const;
     const char *getAllergenInfo() const;

@@ -18,6 +18,7 @@ public:
     void showItems(const char *spiciness) const;
 
     MenuItem **getAllItems() const;
+    int getItemsCounter() const;
 
 private:
     MenuItem **m_allItems;
