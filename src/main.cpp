@@ -146,7 +146,7 @@ int main(void)
 
     /* ------- 2. Creating Menu -------- */
 
-    Menu menu;
+    Menu menu(30);
 
     /* add appetizers */
     for(int i = 0; i<NUM_OF_ITEMS; ++i)

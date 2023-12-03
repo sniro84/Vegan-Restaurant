@@ -1,22 +1,19 @@
 #include <iostream>
 using namespace std;
 
-#include <string.h>  /* strcpy */
+#include <string.h> /* strcpy */
 #include "../include/Menu.h"
 #include "../include/MenuItem.h"
 
 /* Ctor */
-Menu::Menu()
+Menu::Menu(const int capacity)
 {
     cout << "--- Menu Ctor ---" << endl;
 
-    const int CAPACITY = 10;
-
-    m_allItems = new MenuItem*[CAPACITY];
-    m_capacity = CAPACITY;
+    m_allItems = new MenuItem *[capacity];
+    m_capacity = capacity;
     m_itemsCounter = 0;
 }
-
 
 /* CCtor */
 Menu::Menu(const Menu &other)
@@ -30,11 +27,11 @@ Menu::Menu(const Menu &other)
 Menu::~Menu()
 {
     cout << "--- Menu Dtor ---" << endl;
-    for(int i=0; i<m_itemsCounter; ++i)
+    for (int i = 0; i < m_itemsCounter; ++i)
     {
         delete m_allItems[i];
     }
-    delete [] m_allItems;
+    delete[] m_allItems;
 }
 
 /* Assignment Operator */
@@ -42,8 +39,8 @@ Menu &Menu::operator=(const Menu &other)
 {
     cout << "--- Menu Assignment operator ---" << endl;
 
-    m_allItems = new MenuItem*[other.m_capacity];
-    for(int i=0; i<m_itemsCounter; ++i)
+    m_allItems = new MenuItem *[other.m_capacity];
+    for (int i = 0; i < m_itemsCounter; ++i)
     {
         m_allItems[i] = other.m_allItems[i];
     }
@@ -57,12 +54,28 @@ Menu &Menu::operator=(const Menu &other)
 /* OStream Operator */
 ostream &operator<<(std::ostream &os, const Menu &menu)
 {
-    for(int i=0; i<menu.m_itemsCounter; ++i)
+    os << "Menu: " << endl;
+
+    for (int i = 0; i < menu.m_itemsCounter; ++i)
     {
-        /* Here I'm trying to call the ostream operator of
-           each MenuItem in order to display the menu.
-        */
+        os << menu.m_allItems[i] << endl;
     }
 
     return os;
+}
+
+/* Add Item */
+void Menu::addItem(const MenuItem &m)
+{
+    if (m_itemsCounter < m_capacity)
+    {
+        m_allItems[m_itemsCounter] = new MenuItem(m);
+        ++m_itemsCounter;
+    }
+}
+
+/* Delete Item */
+void Menu::deleteItem(const MenuItem &m)
+{
+    
 }
