@@ -59,6 +59,12 @@ bool MenuItem::operator>(const MenuItem &other) const
     return (this->m_price > other.m_price);
 }
 
+/* Equality Operator */
+bool MenuItem::operator==(const MenuItem &other) const
+{
+    return (0 == strcmp(this->m_name, other.m_name));
+}
+
 /* OStream Operator */
 ostream &operator<<(std::ostream &os, const MenuItem &mi)
 {

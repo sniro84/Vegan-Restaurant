@@ -7,7 +7,9 @@ class OrderItem
 {
 public:
     OrderItem(const MenuItem &item, int quantity);
-
+    OrderItem(const OrderItem &other);
+    ~OrderItem();
+    OrderItem &operator=(const OrderItem &other);
     friend std::ostream &operator<<(std::ostream &os, const OrderItem &o);
 
     MenuItem *getItem() const;

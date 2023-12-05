@@ -12,6 +12,7 @@ public:
     MenuItem &operator=(const MenuItem &other);
     bool operator<(const MenuItem &other) const;
     bool operator>(const MenuItem &other) const;
+    bool operator==(const MenuItem &other) const;
     friend std::ostream &operator<<(std::ostream &os, const MenuItem &m);
     virtual void toOs(std::ostream &os) const {};
 

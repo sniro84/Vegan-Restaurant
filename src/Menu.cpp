@@ -6,12 +6,14 @@ using namespace std;
 #include "../include/MenuItem.h"
 
 /* Ctor */
-Menu::Menu(const int capacity)
+Menu::Menu()
 {
     cout << "--- Menu Ctor ---" << endl;
 
-    m_allItems = new MenuItem *[capacity];
-    m_capacity = capacity;
+    const int INITIAL_CAPACITY = 40;
+
+    m_allItems = new MenuItem*[INITIAL_CAPACITY];
+    m_capacity = INITIAL_CAPACITY;
     m_itemsCounter = 0;
 }
 
@@ -77,5 +79,33 @@ void Menu::addItem(const MenuItem &m)
 /* Delete Item */
 void Menu::deleteItem(const MenuItem &m)
 {
-    
+    int indexToDelete = -1;
+
+    // Find the index of the item to delete
+    for (int i = 0; i < m_itemsCounter; ++i)
+    {
+        if (*m_allItems[i] == m) // calling equality operator
+        {
+            indexToDelete = i;
+            break;
+        }
+    }
+
+    // If the item is found, delete it and shift the remaining items
+    if (indexToDelete != -1)
+    {
+        delete m_allItems[indexToDelete];
+
+        // Shift the remaining items to fill the gap
+        for (int i = indexToDelete; i < m_itemsCounter - 1; ++i)
+        {
+            m_allItems[i] = m_allItems[i + 1];
+        }
+
+        --m_itemsCounter;
+    }
+    else
+    {
+        cout << "Item not found in the menu." << endl;
+    }
 }

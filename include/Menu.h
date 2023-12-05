@@ -6,7 +6,7 @@
 class Menu
 {
 public:
-    Menu(const int capacity);
+    Menu();
     Menu(const Menu &other);
     ~Menu();
     Menu &operator=(const Menu &other);

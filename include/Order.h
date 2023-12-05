@@ -17,17 +17,17 @@ public:
     const Order &operator-=(const OrderItem &item);
     friend std::ostream &operator<<(std::ostream &os, const Order &o);
 
-    void recieveOrder(const Customer &customer, const char *remarks);
-    void printOrder() const;
-    void updateOrder(const Customer &customer, const char *remarks);
-    void deleteOrder();
-    OrderItem **getItemsList() const;
-    Customer &getCustomer() const;
-    const char *getRemarks() const;
     void addItem(const OrderItem &item);
+    void removeItem(const OrderItem &item);
+    void updateOrder(const Customer &customer, const char *remarks);
+
+    OrderItem **getItemsList() const;
+    Customer *getCustomer() const;
+    const char *getRemarks() const;
+
     void setCustomer(const Customer &customer);
     void setRemarks(const char *remarks);
-
+    
 private:
     OrderItem **m_itemsList;
     static int m_itemsCount;
