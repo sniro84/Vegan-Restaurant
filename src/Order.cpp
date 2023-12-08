@@ -78,12 +78,14 @@ Order &Order::operator=(const Order &other)
 
 const Order &Order::operator+=(const OrderItem &item)
 {
-    /* Complete this */
+    this->addItem(item);
+    return *this;
 }
 
 const Order &Order::operator-=(const OrderItem &item)
 {
-    /* Complete this */
+    this->removeItem(item);
+    return *this;
 }
 
 /* OStream Operator */
@@ -135,17 +137,20 @@ void Order::setRemarks(const char *remarks)
 
 void Order::addItem(const OrderItem &item)
 {
-    /* Complete this */
+    this->m_itemsList[m_itemsCount] = new OrderItem(item);
+    ++m_itemsCount;
 }
 
 void Order::removeItem(const OrderItem &item)
 {
-    /* Complete this */
+    --m_itemsCount;
+    delete m_itemsList[m_itemsCount];
 }
 
 void Order::updateOrder(const Customer &customer, const char *remarks)
 {
-    /* Complete this */
+    setCustomer(customer);
+    setRemarks(remarks);
 }
 
 
