@@ -4,6 +4,8 @@ using namespace std;
 #include <string.h> /* strcpy, strlen */
 #include "../include/Order.h"
 
+int Order::m_itemsCount = 0;
+
 /* Ctor */
 Order::Order(const Customer &customer, const char *remarks)
 {

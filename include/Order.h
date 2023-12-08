@@ -36,6 +36,4 @@ private:
     char *m_remarks;
 };
 
-int Order::m_itemsCount = 0;
-
 #endif // __ORDER_H_

@@ -26,7 +26,7 @@ OrderItem::~OrderItem()
 {
     cout << "--- OrderItem Dtor ---" << endl;
 
-    delete [] m_item;
+    delete m_item;
 }
 
 /* Assignment Operator */
@@ -34,8 +34,10 @@ OrderItem &OrderItem::operator=(const OrderItem &other)
 {
     if (this != &other)
     {
-        delete [] m_item;
+        delete m_item;
         m_item = new MenuItem(*other.m_item);
+
+        m_quantity = other.m_quantity;
     }
 
     return *this;
